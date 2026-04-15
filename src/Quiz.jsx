@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { getQuestionsByTema } from './questions/index'
 import { motion } from 'framer-motion'
 import Layout from './components/Layout'
+import { salvarResultado } from './utils/salvarResultado' // 🔥 NOVO
 
 export default function Quiz({ tema, voltar }) {
   const [questions, setQuestions] = useState([])
@@ -41,8 +42,11 @@ export default function Quiz({ tema, voltar }) {
 
     setSelected(index)
 
+    let novoScore = score
+
     if (index === correctIndex) {
-      setScore((prev) => prev + 1)
+      novoScore = score + 1
+      setScore(novoScore)
     }
 
     setTimeout(() => {
@@ -51,6 +55,9 @@ export default function Quiz({ tema, voltar }) {
         setSelected(null)
       } else {
         setFinished(true)
+
+        // 🔥 SALVAR NO SUPABASE
+        salvarResultado(tema, novoScore, questions.length)
       }
     }, 800)
   }
