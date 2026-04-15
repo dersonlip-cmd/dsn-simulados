@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getQuestionsByTema } from './questions/index'
 import { motion } from 'framer-motion'
 import Layout from './components/Layout'
-import { salvarResultado } from './utils/salvarResultado' // 🔥 NOVO
+import { salvarResultado } from './utils/salvarResultado'
 
 export default function Quiz({ tema, voltar }) {
   const [questions, setQuestions] = useState([])
@@ -37,6 +37,14 @@ export default function Quiz({ tema, voltar }) {
     ? Math.round((score / questions.length) * 100)
     : 0
 
+  // 🔥 VOLTAR PERGUNTA
+  function voltarPergunta() {
+    if (current > 0) {
+      setCurrent((prev) => prev - 1)
+      setSelected(null)
+    }
+  }
+
   function handleAnswer(index) {
     if (selected !== null) return
 
@@ -56,7 +64,7 @@ export default function Quiz({ tema, voltar }) {
       } else {
         setFinished(true)
 
-        // 🔥 SALVAR NO SUPABASE
+        // 🔥 SALVAR RESULTADO
         salvarResultado(tema, novoScore, questions.length)
       }
     }, 800)
@@ -89,7 +97,7 @@ export default function Quiz({ tema, voltar }) {
           </h3>
 
           <button onClick={voltar} style={styles.button}>
-            Voltar
+            Voltar ao Menu
           </button>
         </div>
       </Layout>
@@ -99,11 +107,25 @@ export default function Quiz({ tema, voltar }) {
   return (
     <Layout>
       <div style={styles.content}>
+
+        {/* 🔥 HEADER COM BOTÕES */}
         <div style={styles.header}>
-          <h2>{tema.toUpperCase()}</h2>
-          <p>
-            {current + 1} / {questions.length}
-          </p>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <button onClick={voltarPergunta} style={styles.navButton}>
+              ⬅
+            </button>
+
+            <button onClick={voltar} style={styles.navButton}>
+              🏠
+            </button>
+          </div>
+
+          <div>
+            <h2>{tema.toUpperCase()}</h2>
+            <p>
+              {current + 1} / {questions.length}
+            </p>
+          </div>
         </div>
 
         <motion.div
@@ -160,7 +182,18 @@ const styles = {
   header: {
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 15
+  },
+
+  navButton: {
+    padding: '8px 12px',
+    borderRadius: 10,
+    border: 'none',
+    cursor: 'pointer',
+    background: '#1e293b',
+    color: '#fff',
+    fontSize: 16
   },
 
   question: {
