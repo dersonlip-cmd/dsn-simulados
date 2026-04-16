@@ -13,24 +13,19 @@ export default function Quiz({ tema, voltar }) {
   const [finished, setFinished] = useState(false)
   const [tempo, setTempo] = useState(0)
 
-  // 🔥 EMBARALHAR RESPOSTAS
+  // 🔥 EMBARALHAR RESPOSTAS (CORRIGIDO)
   function shuffleOptions(question) {
     const options = [...question.options]
-    const correctAnswer = options[question.answer]
-
-    const shuffled = options
-      .map((opt) => ({ opt, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ opt }) => opt)
-
-    const newAnswerIndex = shuffled.findIndex(
-      (opt) => opt === correctAnswer
-    )
+      .map((opt, index) => ({
+        text: opt,
+        correct: index === question.answer
+      }))
+      .sort(() => Math.random() - 0.5)
 
     return {
       ...question,
-      options: shuffled,
-      answer: newAnswerIndex
+      options: options.map(o => o.text),
+      answer: options.findIndex(o => o.correct)
     }
   }
 
@@ -56,7 +51,6 @@ export default function Quiz({ tema, voltar }) {
 
     let lista = []
 
-    // ⏱️ DEFINIR TEMPO
     if (tema === 'prova') setTempo(3600)
     if (tema === 'prova20') setTempo(1800)
 
@@ -70,8 +64,7 @@ export default function Quiz({ tema, voltar }) {
         ...getQuestionsByTema('primeiros_socorros')
       ]
 
-      let quantidade = 40
-      if (tema === 'prova20') quantidade = 20
+      let quantidade = tema === 'prova20' ? 20 : 40
 
       lista = todas
         .sort(() => Math.random() - 0.5)
@@ -93,17 +86,13 @@ export default function Quiz({ tema, voltar }) {
 
   }, [tema])
 
-  function getCorrectIndex() {
-    return questions[current]?.answer
-  }
-
-  const correctIndex = getCorrectIndex()
+  // 🔥 PROTEÇÃO (CORRIGIDO)
+  const correctIndex = questions[current]?.answer ?? null
 
   const percent = questions.length
     ? Math.round((score / questions.length) * 100)
     : 0
 
-  // 🔒 BLOQUEIO DE VOLTAR NA PROVA
   function voltarPergunta() {
     if (tema === 'prova' || tema === 'prova20') return
 
@@ -151,7 +140,8 @@ export default function Quiz({ tema, voltar }) {
     return `${min}:${sec < 10 ? '0' : ''}${sec}`
   }
 
-  if (questions.length === 0) {
+  // 🔥 PROTEÇÃO CONTRA TELA PRETA
+  if (!questions.length || !questions[current]) {
     return <Layout>Carregando...</Layout>
   }
 
@@ -187,14 +177,8 @@ export default function Quiz({ tema, voltar }) {
 
         <div style={styles.header}>
           <div style={{ display: 'flex', gap: 10 }}>
-
-            <button onClick={voltarPergunta} style={styles.navButton}>
-              ⬅
-            </button>
-
-            <button onClick={voltar} style={styles.navButton}>
-              🏠
-            </button>
+            <button onClick={voltarPergunta} style={styles.navButton}>⬅</button>
+            <button onClick={voltar} style={styles.navButton}>🏠</button>
           </div>
 
           <div>
@@ -230,10 +214,7 @@ export default function Quiz({ tema, voltar }) {
                 <motion.div
                   key={i}
                   whileTap={{ scale: 0.97 }}
-                  style={{
-                    ...styles.optionCard,
-                    background: bg
-                  }}
+                  style={{ ...styles.optionCard, background: bg }}
                   onClick={() => handleAnswer(i)}
                 >
                   {opt}
@@ -251,4 +232,65 @@ export default function Quiz({ tema, voltar }) {
       </div>
     </Layout>
   )
+}
+
+// 🎨 ESTILOS (ERRO RESOLVIDO)
+const styles = {
+  content: {
+    width: '100%',
+    maxWidth: 420,
+    padding: 20,
+    margin: '0 auto',
+    color: '#fff'
+  },
+
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: 20
+  },
+
+  question: {
+    marginBottom: 20
+  },
+
+  options: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 12
+  },
+
+  optionCard: {
+    padding: 15,
+    borderRadius: 12,
+    cursor: 'pointer',
+    border: '1px solid rgba(255,255,255,0.1)'
+  },
+
+  footer: {
+    marginTop: 20,
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+
+  card: {
+    padding: 30,
+    borderRadius: 20,
+    background: '#1e293b',
+    textAlign: 'center',
+    color: '#fff'
+  },
+
+  button: {
+    marginTop: 15,
+    padding: 10,
+    width: '100%',
+    cursor: 'pointer'
+  },
+
+  navButton: {
+    padding: 8,
+    cursor: 'pointer',
+    borderRadius: 8
+  }
 }
