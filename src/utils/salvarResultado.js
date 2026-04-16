@@ -1,6 +1,6 @@
 import supabase from "../supabase";
 
-export const salvarResultado = async (tipo, acertos, total) => {
+export const salvarresultado = async (tipo, acertos, total) => {
   const { error } = await supabase.from("historico").insert([
     {
       usuario: "anonimo",
