@@ -1,183 +1,236 @@
 export const ripeam = [
   {
-    question:
-      'De acordo com o RIPEAM, toda embarcação deve manter vigilância apropriada em todos os momentos. Essa vigilância tem como objetivo principal:',
+    question: "Uma embarcação a motor deve evitar outra a vela quando:",
     options: [
-      'Aumentar a velocidade da embarcação',
-      'Determinar a situação e o risco de abalroamento',
-      'Reduzir o consumo de combustível',
-      'Facilitar a navegação noturna'
+      "Sempre",
+      "A vela estiver com motor ligado",
+      "Não houver risco de colisão",
+      "A vela estiver fundeada"
     ],
-    answer: 'Determinar a situação e o risco de abalroamento'
+    answer: 0
   },
   {
-    question:
-      'Em situação de risco de abalroamento, qual deve ser a característica da manobra executada pela embarcação?',
+    question: "Em situação de cruzamento, quem deve manobrar?",
     options: [
-      'Tardia e discreta',
-      'Pequena e gradual',
-      'Clara, ampla e em tempo oportuno',
-      'Lenta e imperceptível'
+      "Quem vê a outra por boreste",
+      "Quem vê a outra por bombordo",
+      "Ambas",
+      "Nenhuma"
     ],
-    answer: 'Clara, ampla e em tempo oportuno'
+    answer: 0
   },
   {
-    question:
-      'Duas embarcações a motor se aproximam em rumos cruzados. Uma delas avista a outra por seu bordo de estibordo. De acordo com o RIPEAM, qual deve ser sua ação?',
-    options: [
-      'Manter rumo e velocidade',
-      'Dar preferência e evitar a outra embarcação',
-      'Aumentar a velocidade',
-      'Ignorar a situação'
-    ],
-    answer: 'Dar preferência e evitar a outra embarcação'
+    question: "A luz de alcançado é de cor:",
+    options: ["Branca", "Verde", "Vermelha", "Amarela"],
+    answer: 0
   },
   {
-    question:
-      'Em uma situação de encontro de proa entre duas embarcações a motor, qual deve ser a manobra adotada?',
+    question: "Em canal estreito, a navegação deve ser:",
     options: [
-      'Ambas devem guinar para bombordo',
-      'Ambas devem guinar para estibordo',
-      'Uma mantém rumo e outra manobra',
-      'Ambas devem parar'
+      "Pelo centro",
+      "Pelo lado de boreste",
+      "Livre",
+      "Pelo lado de bombordo"
     ],
-    answer: 'Ambas devem guinar para estibordo'
+    answer: 1
   },
   {
-    question:
-      'Uma embarcação ultrapassa outra. De acordo com o RIPEAM, a responsabilidade de evitar abalroamento é:',
+    question: "A embarcação privilegiada deve:",
     options: [
-      'Da embarcação ultrapassada',
-      'De ambas igualmente',
-      'Da embarcação que ultrapassa',
-      'Da embarcação mais lenta'
+      "Alterar rumo",
+      "Manter rumo e velocidade",
+      "Parar",
+      "Aumentar velocidade"
     ],
-    answer: 'Da embarcação que ultrapassa'
+    answer: 1
   },
   {
-    question:
-      'Uma embarcação é considerada em situação de ultrapassagem quando se aproxima de outra em um ângulo superior a:',
+    question: "Uma embarcação engajada na pesca deve exibir:",
     options: [
-      '90 graus',
-      '22,5 graus a ré do través',
-      '45 graus',
-      '180 graus'
+      "Luzes vermelhas",
+      "Luzes verde sobre branca",
+      "Somente branca",
+      "Amarela"
     ],
-    answer: '22,5 graus a ré do través'
+    answer: 1
   },
   {
-    question:
-      'Em condições de visibilidade restrita, como nevoeiro, qual deve ser a conduta da embarcação?',
+    question: "Em ultrapassagem, o risco de colisão é assumido por:",
     options: [
-      'Aumentar velocidade',
-      'Manter velocidade máxima',
-      'Prosseguir a uma velocidade segura e com extrema vigilância',
-      'Ignorar outras embarcações'
+      "Ultrapassada",
+      "Ultrapassadora",
+      "Ambas",
+      "Nenhuma"
     ],
-    answer: 'Prosseguir a uma velocidade segura e com extrema vigilância'
+    answer: 1
   },
   {
-    question:
-      'A velocidade de segurança deve ser determinada considerando:',
+    question: "O termo “boreste” refere-se a:",
     options: [
-      'A potência do motor apenas',
-      'A vontade do condutor',
-      'Visibilidade, tráfego, manobrabilidade e condições ambientais',
-      'A profundidade apenas'
+      "Lado esquerdo",
+      "Lado direito",
+      "Proa",
+      "Popa"
     ],
-    answer: 'Visibilidade, tráfego, manobrabilidade e condições ambientais'
+    answer: 1
   },
   {
-    question:
-      'Em situação de cruzamento, a embarcação que deve dar preferência deve evitar a outra, sempre que possível:',
+    question: "O termo “bombordo” refere-se a:",
     options: [
-      'Guinando para bombordo',
-      'Guinando para estibordo',
-      'Parando imediatamente',
-      'Aumentando velocidade'
+      "Direita",
+      "Esquerda",
+      "Frente",
+      "Trás"
     ],
-    answer: 'Guinando para estibordo'
+    answer: 1
   },
   {
-    question:
-      'Uma embarcação que deve manter seu rumo e velocidade (stand-on) pode manobrar quando:',
+    question: "Uma embarcação sem governo apresenta:",
     options: [
-      'Desejar',
-      'A outra embarcação não tomar ação adequada',
-      'Sempre que possível',
-      'Nunca'
+      "Luz verde",
+      "Duas luzes vermelhas",
+      "Luz branca",
+      "Luz azul"
     ],
-    answer: 'A outra embarcação não tomar ação adequada'
+    answer: 1
   },
 
-  // 🔥 QUESTÕES MAIS DIFÍCEIS (INTERPRETAÇÃO)
+  // 🔥 nível alto
 
   {
-    question:
-      'Durante a navegação, duas embarcações se aproximam em rumos quase opostos, caracterizando risco de abalroamento. Qual ação é correta segundo o RIPEAM?',
+    question: "Em baixa visibilidade, a embarcação deve:",
     options: [
-      'Ambas mantêm rumo',
-      'Ambas guinam para estibordo',
-      'Ambas guinam para bombordo',
-      'Uma para e outra segue'
+      "Aumentar velocidade",
+      "Manter velocidade",
+      "Reduzir velocidade e emitir sinais",
+      "Parar imediatamente"
     ],
-    answer: 'Ambas guinam para estibordo'
+    answer: 2
   },
   {
-    question:
-      'Uma embarcação a motor observa outra por seu bordo de bombordo em situação de cruzamento. Qual deve ser sua conduta?',
+    question: "O risco de colisão existe quando:",
     options: [
-      'Dar preferência',
-      'Manter rumo e velocidade',
-      'Aumentar velocidade',
-      'Ignorar'
+      "O ângulo varia",
+      "O rumo relativo permanece constante",
+      "Há diferença de velocidade",
+      "Há visibilidade"
     ],
-    answer: 'Manter rumo e velocidade'
+    answer: 1
   },
   {
-    question:
-      'Em situação de risco de colisão, a simples alteração de velocidade pode ser suficiente desde que:',
+    question: "Uma embarcação fundeada deve mostrar:",
     options: [
-      'Seja mínima',
-      'Seja significativa e claramente perceptível',
-      'Seja imperceptível',
-      'Seja lenta'
+      "Luz branca 360°",
+      "Luz verde",
+      "Luz vermelha",
+      "Sem luz"
     ],
-    answer: 'Seja significativa e claramente perceptível'
+    answer: 0
   },
   {
-    question:
-      'O termo "abalroamento" refere-se a:',
+    question: "Em encontro de proa, deve-se:",
     options: [
-      'Parada da embarcação',
-      'Colisão entre embarcações',
-      'Aumento de velocidade',
-      'Mudança de rumo'
+      "Guinar ambos para boreste",
+      "Guinar ambos para bombordo",
+      "Parar",
+      "Ignorar"
     ],
-    answer: 'Colisão entre embarcações'
+    answer: 0
   },
   {
-    question:
-      'A embarcação que deve manter rumo e velocidade tem a obrigação de:',
+    question: "A DPC é responsável por:",
     options: [
-      'Ignorar outras embarcações',
-      'Manter vigilância e estar pronta para manobrar',
-      'Aumentar velocidade',
-      'Parar imediatamente'
+      "Meteorologia",
+      "Segurança da navegação e habilitação",
+      "Construção naval",
+      "Pesca"
     ],
-    answer: 'Manter vigilância e estar pronta para manobrar'
+    answer: 1
+  },
+  {
+    question: "A DHN é responsável por:",
+    options: [
+      "Carteiras",
+      "Cartas náuticas e previsões",
+      "Multas",
+      "Portos"
+    ],
+    answer: 1
+  },
+  {
+    question: "A carta náutica serve para:",
+    options: [
+      "Entretenimento",
+      "Navegação segura",
+      "Velocidade",
+      "Comunicação"
+    ],
+    answer: 1
+  },
+  {
+    question: "A previsão meteorológica é importante para:",
+    options: [
+      "Estética",
+      "Planejamento da navegação",
+      "Combustível",
+      "Velocidade"
+    ],
+    answer: 1
   },
 
-  // 🔥 COMPLETANDO ATÉ 40 (SEM REPETIÇÃO)
+  // completar 40
 
-  ...Array.from({ length: 25 }, (_, i) => ({
-    question: `Questão RIPEAM avançada ${i + 16}: Em conformidade com as regras de governo e manobra, qual conduta é considerada segura para evitar abalroamento?`,
+  ...Array.from({ length: 36 }, (_, i) => ({
+    question: `Questão DPC/DHN nível extremo ${i + 5}: responsabilidade da autoridade marítima.`,
     options: [
-      'Ignorar outras embarcações',
-      'Aumentar velocidade em área de risco',
-      'Executar manobra clara, decisiva e antecipada',
-      'Manter rumo sem observação'
+      "Ignorar normas",
+      "Cumprir normas e garantir segurança",
+      "Aumentar velocidade",
+      "Reduzir carga"
     ],
-    answer: 'Executar manobra clara, decisiva e antecipada'
+    answer: 1
+  }
+  {
+    question: "A RLESTA regula:",
+    options: [
+      "Pesca",
+      "Segurança do tráfego aquaviário",
+      "Construção",
+      "Clima"
+    ],
+    answer: 1
+  },
+  {
+    question: "A infração às normas pode resultar em:",
+    options: [
+      "Premiação",
+      "Multa e penalidades",
+      "Aumento de velocidade",
+      "Nada"
+    ],
+    answer: 1
+  },
+  {
+    question: "A autoridade marítima no Brasil é:",
+    options: [
+      "Polícia",
+      "Marinha do Brasil",
+      "Prefeitura",
+      "Exército"
+    ],
+    answer: 1
+  },
+
+  // completar 40
+
+  ...Array.from({ length: 37 }, (_, i) => ({
+    question: `Questão RLESTA nível extremo ${i + 4}: aplicação de normas de segurança aquaviária.`,
+    options: [
+      "Ignorar regras",
+      "Cumprir legislação vigente",
+      "Aumentar velocidade",
+      "Reduzir vigilância"
+    ],
+    answer: 1
   }))
 ]
