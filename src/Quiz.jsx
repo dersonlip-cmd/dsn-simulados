@@ -11,8 +11,31 @@ export default function Quiz({ tema, voltar }) {
   const [score, setScore] = useState(0)
   const [finished, setFinished] = useState(false)
 
+  // 🔥 EMBARALHAR RESPOSTAS
+  function shuffleOptions(question) {
+    const options = [...question.options]
+    const correctAnswer = options[question.answer]
+
+    const shuffled = options
+      .map((opt) => ({ opt, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ opt }) => opt)
+
+    const newAnswerIndex = shuffled.findIndex(
+      (opt) => opt === correctAnswer
+    )
+
+    return {
+      ...question,
+      options: shuffled,
+      answer: newAnswerIndex
+    }
+  }
+
   useEffect(() => {
     const lista = getQuestionsByTema(tema)
+      .sort(() => Math.random() - 0.5) // 🔥 embaralha perguntas
+      .map(shuffleOptions) // 🔥 embaralha respostas
 
     setQuestions(lista)
     setCurrent(0)
@@ -37,7 +60,6 @@ export default function Quiz({ tema, voltar }) {
     ? Math.round((score / questions.length) * 100)
     : 0
 
-  // 🔥 VOLTAR PERGUNTA
   function voltarPergunta() {
     if (current > 0) {
       setCurrent((prev) => prev - 1)
@@ -64,7 +86,6 @@ export default function Quiz({ tema, voltar }) {
       } else {
         setFinished(true)
 
-        // 🔥 SALVAR RESULTADO
         salvarResultado(tema, novoScore, questions.length)
       }
     }, 800)
@@ -108,7 +129,6 @@ export default function Quiz({ tema, voltar }) {
     <Layout>
       <div style={styles.content}>
 
-        {/* 🔥 HEADER COM BOTÕES */}
         <div style={styles.header}>
           <div style={{ display: 'flex', gap: 10 }}>
             <button onClick={voltarPergunta} style={styles.navButton}>
