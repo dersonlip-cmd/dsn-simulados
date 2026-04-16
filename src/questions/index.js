@@ -18,21 +18,27 @@ function shuffle(array) {
   return [...array].sort(() => Math.random() - 0.5)
 }
 
-// 🔥 ESSA LINHA É O QUE FALTAVA
+// 🔥 FUNÇÃO PRINCIPAL
 export function getQuestionsByTema(tema) {
+
   const todas = Object.values(banco).flat()
 
-  if (tema === 'simulado20') {
+  // 🔥 PROVA REAL (usado no Quiz.jsx)
+  if (tema === 'prova20' || tema === 'simulado20') {
     return shuffle(todas).slice(0, 20)
   }
 
-  if (tema === 'simulado40') {
+  if (tema === 'prova' || tema === 'simulado40') {
     return shuffle(todas).slice(0, 40)
   }
 
+  // 📚 TEMAS NORMAIS
   const lista = banco[tema]
 
-  if (!lista) return []
+  if (!lista) {
+    console.error('Tema inválido:', tema)
+    return []
+  }
 
   return shuffle(lista).slice(0, 40)
 }
