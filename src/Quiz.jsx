@@ -5,13 +5,15 @@ import Layout from './components/Layout'
 import { salvarResultado } from './utils/salvarResultado'
 
 export default function Quiz({ tema, voltar }) {
+
   const [questions, setQuestions] = useState([])
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
   const [score, setScore] = useState(0)
   const [finished, setFinished] = useState(false)
+  const [tempo, setTempo] = useState(3600) // ⏱️ 60 min
 
-  // 🔥 EMBARALHAR RESPOSTAS
+  // 🔥 EMBARALHAR RESPOSTAS (MANTIDO)
   function shuffleOptions(question) {
     const options = [...question.options]
     const correctAnswer = options[question.answer]
@@ -32,26 +34,58 @@ export default function Quiz({ tema, voltar }) {
     }
   }
 
+  // ⏱️ TIMER (NOVO)
   useEffect(() => {
-    const lista = getQuestionsByTema(tema)
-      .sort(() => Math.random() - 0.5) // 🔥 embaralha perguntas
-      .map(shuffleOptions) // 🔥 embaralha respostas
+    if (tema !== 'prova' || finished) return
+
+    const timer = setInterval(() => {
+      setTempo((t) => {
+        if (t <= 1) {
+          setFinished(true)
+          return 0
+        }
+        return t - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [tema, finished])
+
+  useEffect(() => {
+
+    let lista = []
+
+    // 🔥 MODO PROVA (NOVO)
+    if (tema === 'prova') {
+      const todas = [
+        ...getQuestionsByTema('seguranca'),
+        ...getQuestionsByTema('ripeam'),
+        ...getQuestionsByTema('balizamento'),
+        ...getQuestionsByTema('legislacao'),
+        ...getQuestionsByTema('primeiros_socorros')
+      ]
+
+      lista = todas
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 40)
+        .map(shuffleOptions)
+
+    } else {
+      lista = getQuestionsByTema(tema)
+        .sort(() => Math.random() - 0.5)
+        .map(shuffleOptions)
+    }
 
     setQuestions(lista)
     setCurrent(0)
     setScore(0)
     setSelected(null)
     setFinished(false)
+
   }, [tema])
 
   function getCorrectIndex() {
-    const answer = questions[current]?.answer
-
-    if (typeof answer === 'number') return answer
-
-    return questions[current]?.options.findIndex(
-      (opt) => opt === answer
-    )
+    return questions[current]?.answer
   }
 
   const correctIndex = getCorrectIndex()
@@ -60,7 +94,9 @@ export default function Quiz({ tema, voltar }) {
     ? Math.round((score / questions.length) * 100)
     : 0
 
+  // 🔒 BLOQUEAR VOLTAR NA PROVA
   function voltarPergunta() {
+    if (tema === 'prova') return
     if (current > 0) {
       setCurrent((prev) => prev - 1)
       setSelected(null)
@@ -86,17 +122,23 @@ export default function Quiz({ tema, voltar }) {
       } else {
         setFinished(true)
 
-        salvarResultado(tema, novoScore, questions.length)
+        salvarResultado(
+          tema === 'prova' ? 'Prova Completa' : tema,
+          novoScore,
+          questions.length
+        )
       }
     }, 800)
   }
 
+  function formatTime(segundos) {
+    const min = Math.floor(segundos / 60)
+    const sec = segundos % 60
+    return `${min}:${sec < 10 ? '0' : ''}${sec}`
+  }
+
   if (questions.length === 0) {
-    return (
-      <Layout>
-        <h2 style={{ textAlign: 'center' }}>Carregando...</h2>
-      </Layout>
-    )
+    return <Layout>Carregando...</Layout>
   }
 
   if (finished) {
@@ -131,6 +173,7 @@ export default function Quiz({ tema, voltar }) {
 
         <div style={styles.header}>
           <div style={{ display: 'flex', gap: 10 }}>
+
             <button onClick={voltarPergunta} style={styles.navButton}>
               ⬅
             </button>
@@ -142,9 +185,12 @@ export default function Quiz({ tema, voltar }) {
 
           <div>
             <h2>{tema.toUpperCase()}</h2>
-            <p>
-              {current + 1} / {questions.length}
-            </p>
+            <p>{current + 1} / {questions.length}</p>
+
+            {/* ⏱️ TIMER VISUAL */}
+            {tema === 'prova' && (
+              <p>⏱️ {formatTime(tempo)}</p>
+            )}
           </div>
         </div>
 
@@ -159,6 +205,7 @@ export default function Quiz({ tema, voltar }) {
 
           <div style={styles.options}>
             {questions[current].options.map((opt, i) => {
+
               let bg = 'rgba(255,255,255,0.05)'
 
               if (selected !== null) {
@@ -187,73 +234,8 @@ export default function Quiz({ tema, voltar }) {
           <span>Acertos: {score}</span>
           <span>{percent}%</span>
         </div>
+
       </div>
     </Layout>
   )
-}
-
-const styles = {
-  content: {
-    width: '100%',
-    maxWidth: 400,
-    padding: 20
-  },
-
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 15
-  },
-
-  navButton: {
-    padding: '8px 12px',
-    borderRadius: 10,
-    border: 'none',
-    cursor: 'pointer',
-    background: '#1e293b',
-    color: '#fff',
-    fontSize: 16
-  },
-
-  question: {
-    marginBottom: 20,
-    lineHeight: 1.4
-  },
-
-  options: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 12
-  },
-
-  optionCard: {
-    padding: 15,
-    borderRadius: 12,
-    cursor: 'pointer',
-    border: '1px solid rgba(255,255,255,0.1)',
-    backdropFilter: 'blur(10px)',
-    transition: '0.3s'
-  },
-
-  footer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    opacity: 0.8
-  },
-
-  card: {
-    padding: 30,
-    borderRadius: 20,
-    background: '#1e293b',
-    textAlign: 'center'
-  },
-
-  button: {
-    marginTop: 15,
-    padding: 10,
-    width: '100%',
-    cursor: 'pointer'
-  }
 }
