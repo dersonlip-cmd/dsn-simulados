@@ -11,7 +11,8 @@ const temas = [
 const simulados = [
   { nome: 'Simulado Geral 20', id: 'simulado20', icon: '🧠' },
   { nome: 'Simulado Geral 40', id: 'simulado40', icon: '🔥' },
-  { nome: 'PROVA REAL', id: 'prova', icon: '🎯' } // 🔥 NOVO
+  { nome: 'PROVA REAL', id: 'prova', icon: '🎯' },
+  { nome: 'PROVA RÁPIDA 20', id: 'prova20', icon: '⚡' } // 🔥 NOVO
 ]
 
 // 🔥 ADICIONADO irHistorico

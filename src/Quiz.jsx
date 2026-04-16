@@ -11,9 +11,9 @@ export default function Quiz({ tema, voltar }) {
   const [selected, setSelected] = useState(null)
   const [score, setScore] = useState(0)
   const [finished, setFinished] = useState(false)
-  const [tempo, setTempo] = useState(3600) // ⏱️ 60 min
+  const [tempo, setTempo] = useState(0)
 
-  // 🔥 EMBARALHAR RESPOSTAS (MANTIDO)
+  // 🔥 EMBARALHAR RESPOSTAS
   function shuffleOptions(question) {
     const options = [...question.options]
     const correctAnswer = options[question.answer]
@@ -34,9 +34,9 @@ export default function Quiz({ tema, voltar }) {
     }
   }
 
-  // ⏱️ TIMER (NOVO)
+  // ⏱️ TIMER
   useEffect(() => {
-    if (tema !== 'prova' || finished) return
+    if ((tema !== 'prova' && tema !== 'prova20') || finished) return
 
     const timer = setInterval(() => {
       setTempo((t) => {
@@ -51,12 +51,17 @@ export default function Quiz({ tema, voltar }) {
     return () => clearInterval(timer)
   }, [tema, finished])
 
+  // 🔥 CARREGAR QUESTÕES
   useEffect(() => {
 
     let lista = []
 
-    // 🔥 MODO PROVA (NOVO)
-    if (tema === 'prova') {
+    // ⏱️ DEFINIR TEMPO
+    if (tema === 'prova') setTempo(3600)
+    if (tema === 'prova20') setTempo(1800)
+
+    if (tema === 'prova' || tema === 'prova20') {
+
       const todas = [
         ...getQuestionsByTema('seguranca'),
         ...getQuestionsByTema('ripeam'),
@@ -65,12 +70,16 @@ export default function Quiz({ tema, voltar }) {
         ...getQuestionsByTema('primeiros_socorros')
       ]
 
+      let quantidade = 40
+      if (tema === 'prova20') quantidade = 20
+
       lista = todas
         .sort(() => Math.random() - 0.5)
-        .slice(0, 40)
+        .slice(0, quantidade)
         .map(shuffleOptions)
 
     } else {
+
       lista = getQuestionsByTema(tema)
         .sort(() => Math.random() - 0.5)
         .map(shuffleOptions)
@@ -94,9 +103,10 @@ export default function Quiz({ tema, voltar }) {
     ? Math.round((score / questions.length) * 100)
     : 0
 
-  // 🔒 BLOQUEAR VOLTAR NA PROVA
+  // 🔒 BLOQUEIO DE VOLTAR NA PROVA
   function voltarPergunta() {
-    if (tema === 'prova') return
+    if (tema === 'prova' || tema === 'prova20') return
+
     if (current > 0) {
       setCurrent((prev) => prev - 1)
       setSelected(null)
@@ -123,7 +133,11 @@ export default function Quiz({ tema, voltar }) {
         setFinished(true)
 
         salvarResultado(
-          tema === 'prova' ? 'Prova Completa' : tema,
+          tema === 'prova'
+            ? 'Prova Completa'
+            : tema === 'prova20'
+            ? 'Prova Rápida'
+            : tema,
           novoScore,
           questions.length
         )
@@ -187,8 +201,7 @@ export default function Quiz({ tema, voltar }) {
             <h2>{tema.toUpperCase()}</h2>
             <p>{current + 1} / {questions.length}</p>
 
-            {/* ⏱️ TIMER VISUAL */}
-            {tema === 'prova' && (
+            {(tema === 'prova' || tema === 'prova20') && (
               <p>⏱️ {formatTime(tempo)}</p>
             )}
           </div>
