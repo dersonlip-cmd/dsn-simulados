@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getQuestionsByTema } from './questions/index'
 import { motion } from 'framer-motion'
 import Layout from './components/Layout'
-import { salvarresultado } from './utils/salvarresultado'
+import { salvarResultado } from './utils/salvarResultado'
 
 export default function Quiz({ tema, voltar }) {
   const [questions, setQuestions] = useState([])
