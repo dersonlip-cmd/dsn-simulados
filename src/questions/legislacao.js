@@ -1,183 +1,376 @@
 export const legislacao = [
-  {
-    question:
-      'De acordo com o Regulamento da Lei de Segurança do Tráfego Aquaviário (RLESTA), a condução de embarcação sem habilitação caracteriza:',
-    options: [
-      'Situação regular em águas interiores',
-      'Infração administrativa sujeita a penalidades',
-      'Apenas advertência verbal',
-      'Conduta permitida para embarcações de pequeno porte'
-    ],
-    answer: 'Infração administrativa sujeita a penalidades'
-  },
-  {
-    question:
-      'Segundo as Normas da Autoridade Marítima (NORMAM), a responsabilidade pela segurança da navegação recai prioritariamente sobre:',
-    options: [
-      'A Capitania dos Portos',
-      'Os passageiros',
-      'O condutor da embarcação',
-      'O fabricante'
-    ],
-    answer: 'O condutor da embarcação'
-  },
-  {
-    question:
-      'O Título de Inscrição de Embarcação (TIE) é o documento que:',
-    options: [
-      'Autoriza navegação internacional',
-      'Comprova propriedade e inscrição da embarcação',
-      'Substitui a habilitação do condutor',
-      'Autoriza transporte de passageiros'
-    ],
-    answer: 'Comprova propriedade e inscrição da embarcação'
-  },
-  {
-    question:
-      'De acordo com o RLESTA, expor a risco a segurança da navegação pode resultar em:',
-    options: [
-      'Apenas advertência',
-      'Penalidades administrativas e, em casos graves, responsabilização penal',
-      'Nenhuma consequência',
-      'Somente multa leve'
-    ],
-    answer: 'Penalidades administrativas e, em casos graves, responsabilização penal'
-  },
-  {
-    question:
-      'A condução de embarcação sob efeito de álcool ou substância psicoativa é considerada:',
-    options: [
-      'Conduta tolerada em pequenas quantidades',
-      'Infração grave à segurança da navegação',
-      'Permitida em águas abrigadas',
-      'Apenas advertência'
-    ],
-    answer: 'Infração grave à segurança da navegação'
-  },
-  {
-    question:
-      'Segundo a NORMAM, a lotação máxima da embarcação deve ser:',
-    options: [
-      'Apenas recomendada',
-      'Obrigatoriamente respeitada',
-      'Definida pelo condutor',
-      'Aumentada conforme necessidade'
-    ],
-    answer: 'Obrigatoriamente respeitada'
-  },
-  {
-    question:
-      'A navegação em áreas interditadas pela Autoridade Marítima constitui:',
-    options: [
-      'Situação regular',
-      'Infração administrativa',
-      'Conduta permitida em emergência',
-      'Recomendação apenas'
-    ],
-    answer: 'Infração administrativa'
-  },
-  {
-    question:
-      'O condutor deve portar durante a navegação:',
-    options: [
-      'Apenas documento pessoal',
-      'Habilitação e documento da embarcação',
-      'Somente habilitação',
-      'Nenhum documento'
-    ],
-    answer: 'Habilitação e documento da embarcação'
-  },
 
-  // 🔥 QUESTÕES INTERPRETATIVAS (NÍVEL DIFÍCIL)
+  // ⚖️ BASE LEGAL
 
   {
-    question:
-      'Durante fiscalização, verifica-se que a embarcação está operando sem equipamentos obrigatórios previstos na NORMAM. Essa situação caracteriza:',
+    question: "A Lei nº 9.537/97 (LESTA) trata de:",
     options: [
-      'Situação regular',
-      'Infração às normas de segurança da navegação',
-      'Apenas recomendação',
-      'Irregularidade leve sem penalidade'
+      "Construção naval",
+      "Segurança do tráfego aquaviário",
+      "Meteorologia",
+      "Pesca"
     ],
-    answer: 'Infração às normas de segurança da navegação'
+    answer: 1
   },
   {
-    question:
-      'De acordo com o RLESTA, o condutor que age com imprudência e coloca em risco a vida humana no mar pode sofrer:',
+    question: "A autoridade marítima no Brasil é exercida pela:",
     options: [
-      'Somente advertência',
-      'Responsabilização administrativa e penal',
-      'Nenhuma penalidade',
-      'Apenas multa leve'
+      "Polícia Federal",
+      "Marinha do Brasil",
+      "Exército",
+      "Prefeitura"
     ],
-    answer: 'Responsabilização administrativa e penal'
+    answer: 1
   },
   {
-    question:
-      'A ausência do TIE a bordo durante a navegação caracteriza:',
+    question: "O RLESTA é:",
     options: [
-      'Situação normal',
-      'Infração administrativa',
-      'Recomendação',
-      'Permitido em áreas interiores'
+      "Lei complementar",
+      "Regulamento da LESTA",
+      "Norma internacional",
+      "Código penal"
     ],
-    answer: 'Infração administrativa'
-  },
-  {
-    question:
-      'A habilitação de motonauta permite:',
-    options: [
-      'Conduzir qualquer embarcação',
-      'Conduzir apenas moto aquática',
-      'Operar embarcações comerciais',
-      'Conduzir navios'
-    ],
-    answer: 'Conduzir apenas moto aquática'
-  },
-  {
-    question:
-      'O descumprimento das normas da Autoridade Marítima pode resultar em:',
-    options: [
-      'Advertência, multa e apreensão da embarcação',
-      'Apenas orientação',
-      'Nenhuma penalidade',
-      'Somente aviso verbal'
-    ],
-    answer: 'Advertência, multa e apreensão da embarcação'
-  },
-  {
-    question:
-      'A velocidade incompatível com a segurança da navegação é considerada:',
-    options: [
-      'Conduta aceitável',
-      'Infração administrativa',
-      'Recomendação',
-      'Situação normal'
-    ],
-    answer: 'Infração administrativa'
-  },
-  {
-    question:
-      'A navegação sem habilitação válida caracteriza:',
-    options: [
-      'Situação regular',
-      'Infração grave',
-      'Permitido em áreas internas',
-      'Recomendação'
-    ],
-    answer: 'Infração grave'
+    answer: 1
   },
 
-  // 🔥 COMPLETANDO ATÉ 40 (SEM REPETIÇÃO)
+  // 🚫 INFRAÇÕES
 
-  ...Array.from({ length: 25 }, (_, i) => ({
-    question: `Questão legislação/RLESTA/NORMAM ${i + 16}: Qual é o principal objetivo das normas estabelecidas pela Autoridade Marítima?`,
+  {
+    question: "Conduzir embarcação sem habilitação é:",
     options: [
-      'Aumentar arrecadação',
-      'Garantir a segurança da navegação e a salvaguarda da vida humana',
-      'Controlar velocidade apenas',
-      'Regular combustível'
+      "Permitido em águas interiores",
+      "Infração administrativa",
+      "Apenas advertência",
+      "Legal em caso de emergência"
     ],
-    answer: 'Garantir a segurança da navegação e a salvaguarda da vida humana'
-  }))
+    answer: 1
+  },
+  {
+    question: "A condução sob efeito de álcool é considerada:",
+    options: [
+      "Infração leve",
+      "Infração grave",
+      "Permitida",
+      "Advertência simples"
+    ],
+    answer: 1
+  },
+
+  // 💰 MULTAS
+
+  {
+    question: "As multas na LESTA podem variar aproximadamente entre:",
+    options: [
+      "R$ 10 a R$ 100",
+      "R$ 40 a R$ 3.200",
+      "R$ 1.000 a R$ 10.000",
+      "R$ 500 fixo"
+    ],
+    answer: 1
+  },
+  {
+    question: "A multa por infração grave pode chegar até:",
+    options: [
+      "R$ 500",
+      "R$ 1.000",
+      "R$ 3.200",
+      "R$ 10.000"
+    ],
+    answer: 2
+  },
+
+  // ⛔ SUSPENSÃO E CASSAÇÃO
+
+  {
+    question: "A suspensão da habilitação pode ocorrer por:",
+    options: [
+      "Uso correto do colete",
+      "Infração grave ou reincidência",
+      "Manutenção adequada",
+      "Navegação diurna"
+    ],
+    answer: 1
+  },
+  {
+    question: "O prazo de suspensão pode chegar até:",
+    options: [
+      "30 dias",
+      "6 meses",
+      "12 meses",
+      "5 anos"
+    ],
+    answer: 2
+  },
+  {
+    question: "A cassação da habilitação ocorre em casos de:",
+    options: [
+      "Infrações leves",
+      "Reincidência grave ou negligência extrema",
+      "Erro simples",
+      "Falta de combustível"
+    ],
+    answer: 1
+  },
+
+  // 📄 DOCUMENTAÇÃO
+
+  {
+    question: "É obrigatório portar a bordo:",
+    options: [
+      "Somente combustível",
+      "Documentação da embarcação",
+      "Mapa terrestre",
+      "Equipamento eletrônico"
+    ],
+    answer: 1
+  },
+  {
+    question: "A falta de documentação caracteriza:",
+    options: [
+      "Situação normal",
+      "Infração",
+      "Advertência leve",
+      "Não é fiscalizado"
+    ],
+    answer: 1
+  },
+
+  // ⚠️ SEGURANÇA
+
+  {
+    question: "A superlotação da embarcação é:",
+    options: [
+      "Permitida",
+      "Infração grave",
+      "Normal",
+      "Opcional"
+    ],
+    answer: 1
+  },
+  {
+    question: "A falta de equipamentos obrigatórios gera:",
+    options: [
+      "Nada",
+      "Infração administrativa",
+      "Apenas alerta",
+      "Bônus"
+    ],
+    answer: 1
+  },
+
+  // 🚨 RESPONSABILIDADE
+
+  {
+    question: "O responsável pela embarcação é:",
+    options: [
+      "Qualquer tripulante",
+      "O condutor",
+      "O passageiro",
+      "A autoridade"
+    ],
+    answer: 1
+  },
+  {
+    question: "O condutor responde por:",
+    options: [
+      "Somente navegação",
+      "Segurança da embarcação e tripulação",
+      "Clima",
+      "Correnteza"
+    ],
+    answer: 1
+  },
+
+  // 🔥 NÍVEL PROVA
+
+  {
+    question: "Em caso de acidente com vítima, o condutor deve:",
+    options: [
+      "Abandonar local",
+      "Prestar socorro imediato",
+      "Ignorar",
+      "Acelerar"
+    ],
+    answer: 1
+  },
+  {
+    question: "A omissão de socorro é:",
+    options: [
+      "Permitida",
+      "Infração grave",
+      "Opcional",
+      "Sem penalidade"
+    ],
+    answer: 1
+  },
+
+  // 🍺 ÁLCOOL
+
+  {
+    question: "A tolerância ao álcool na condução de embarcação é:",
+    options: [
+      "Livre",
+      "Restrita conforme norma",
+      "Somente à noite",
+      "Permitida em pequena quantidade"
+    ],
+    answer: 1
+  },
+
+  // 🔥 EXTREMO
+
+  {
+    question: "Reincidir em infração pode resultar em:",
+    options: [
+      "Desconto",
+      "Aumento da penalidade",
+      "Nada",
+      "Advertência"
+    ],
+    answer: 1
+  },
+  {
+    question: "A fiscalização da navegação é feita pela:",
+    options: [
+      "Prefeitura",
+      "Marinha do Brasil",
+      "Polícia rodoviária",
+      "Exército"
+    ],
+    answer: 1
+  },
+
+  // 🔥 COMPLETAR 40 (NÍVEL PROVA REAL)
+
+  {
+    question: "O descumprimento das normas de segurança pode resultar em:",
+    options: [
+      "Benefício",
+      "Multas e suspensão",
+      "Velocidade",
+      "Nada"
+    ],
+    answer: 1
+  },
+  {
+    question: "A navegação irregular pode causar:",
+    options: [
+      "Segurança",
+      "Acidentes e penalidades",
+      "Economia",
+      "Velocidade"
+    ],
+    answer: 1
+  },
+  {
+    question: "O objetivo da legislação marítima é:",
+    options: [
+      "Multar apenas",
+      "Garantir segurança da navegação",
+      "Aumentar velocidade",
+      "Controlar combustível"
+    ],
+    answer: 1
+  },
+  {
+    question: "A negligência do condutor é considerada:",
+    options: [
+      "Normal",
+      "Infração",
+      "Permitida",
+      "Opcional"
+    ],
+    answer: 1
+  },
+  {
+    question: "A imprudência na condução pode resultar em:",
+    options: [
+      "Premiação",
+      "Penalidades legais",
+      "Benefício",
+      "Nada"
+    ],
+    answer: 1
+  },
+  {
+    question: "A imperícia refere-se a:",
+    options: [
+      "Falta de atenção",
+      "Falta de habilidade técnica",
+      "Excesso de velocidade",
+      "Clima"
+    ],
+    answer: 1
+  },
+  {
+    question: "O uso irregular da embarcação pode gerar:",
+    options: [
+      "Bônus",
+      "Multa",
+      "Benefício",
+      "Nada"
+    ],
+    answer: 1
+  },
+  {
+    question: "A autoridade marítima pode:",
+    options: [
+      "Ignorar infrações",
+      "Aplicar penalidades",
+      "Aumentar velocidade",
+      "Liberar infrações"
+    ],
+    answer: 1
+  },
+  {
+    question: "A habilitação é obrigatória para:",
+    options: [
+      "Qualquer pessoa",
+      "Condutor da embarcação",
+      "Passageiro",
+      "Turista"
+    ],
+    answer: 1
+  },
+  {
+    question: "O descumprimento da LESTA implica:",
+    options: [
+      "Nada",
+      "Sanções administrativas",
+      "Benefícios",
+      "Velocidade"
+    ],
+    answer: 1
+  },
+  {
+    question: "A legislação visa principalmente:",
+    options: [
+      "Controle financeiro",
+      "Proteção da vida humana",
+      "Velocidade",
+      "Consumo"
+    ],
+    answer: 1
+  },
+  {
+    question: "A segurança da navegação depende:",
+    options: [
+      "Sorte",
+      "Cumprimento das normas",
+      "Velocidade",
+      "Clima"
+    ],
+    answer: 1
+  },
+  {
+    question: "A infração pode resultar em:",
+    options: [
+      "Premiação",
+      "Advertência, multa ou suspensão",
+      "Nada",
+      "Velocidade"
+    ],
+    answer: 1
+  }
+
 ]
