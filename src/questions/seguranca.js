@@ -96,7 +96,7 @@ export const seguranca = [
     answer: 2
   },
 
-  // 🔹 EXTINTORES (INTEGRADO 🔥)
+  // 🔹 EXTINTORES
 
   {
     question: "O extintor de água é indicado principalmente para incêndios da classe:",
@@ -225,7 +225,10 @@ export const seguranca = [
       "Preservar carga"
     ],
     answer: 1
-  }
+  },
+
+  // 🔥 CONTINUAÇÃO (CORRIGIDO)
+
   {
     question: "Em incêndios classe C, a prioridade é:",
     options: [
@@ -265,145 +268,6 @@ export const seguranca = [
       "Controlar iluminação"
     ],
     answer: 1
-  },
-  {
-    question: "Em caso de entrada contínua de água na embarcação, deve-se:",
-    options: [
-      "Aumentar velocidade",
-      "Usar bomba de porão e identificar origem",
-      "Ignorar se pequena",
-      "Desligar motor"
-    ],
-    answer: 1
-  },
-  {
-    question: "A estabilidade transversal da embarcação é afetada por:",
-    options: [
-      "Cor do casco",
-      "Distribuição lateral de peso",
-      "Quantidade de combustível",
-      "Tipo de motor"
-    ],
-    answer: 1
-  },
-  {
-    question: "Em situação de pânico a bordo, o condutor deve:",
-    options: [
-      "Abandonar comando",
-      "Manter controle e orientar tripulação",
-      "Aumentar velocidade",
-      "Desligar todos sistemas"
-    ],
-    answer: 1
-  },
-  {
-    question: "O uso incorreto do colete salva-vidas pode:",
-    options: [
-      "Melhorar flutuação",
-      "Reduzir sua eficácia",
-      "Aumentar velocidade",
-      "Evitar quedas"
-    ],
-    answer: 1
-  },
-  {
-    question: "Em mar agitado, o correto é:",
-    options: [
-      "Navegar perpendicular às ondas sem ajuste",
-      "Ajustar proa e reduzir velocidade",
-      "Aumentar velocidade para sair rápido",
-      "Ignorar condições"
-    ],
-    answer: 1
-  },
-  {
-    question: "O principal risco de gases acumulados no compartimento do motor é:",
-    options: [
-      "Resfriamento excessivo",
-      "Explosão",
-      "Aumento de potência",
-      "Consumo elevado"
-    ],
-    answer: 1
-  },
-  {
-    question: "A manutenção do sistema elétrico evita:",
-    options: [
-      "Aumento de peso",
-      "Curto-circuito e incêndios",
-      "Redução de velocidade",
-      "Desgaste do casco"
-    ],
-    answer: 1
-  },
-  {
-    question: "Em caso de falha de direção, o condutor deve:",
-    options: [
-      "Aumentar velocidade",
-      "Reduzir velocidade e sinalizar",
-      "Ignorar problema",
-      "Desligar bateria"
-    ],
-    answer: 1
-  },
-  {
-    question: "O excesso de carga na popa pode causar:",
-    options: [
-      "Melhor estabilidade",
-      "Afundamento da traseira e perda de controle",
-      "Aumento de velocidade",
-      "Menor consumo"
-    ],
-    answer: 1
-  },
-  {
-    question: "A inspeção visual do casco deve verificar:",
-    options: [
-      "Cor apenas",
-      "Rachaduras e infiltrações",
-      "Velocidade",
-      "Som do motor"
-    ],
-    answer: 1
-  },
-  {
-    question: "Em incêndios classe A, a melhor técnica é:",
-    options: [
-      "Abafamento",
-      "Resfriamento",
-      "Ventilação",
-      "Explosão controlada"
-    ],
-    answer: 1
-  },
-  {
-    question: "A falta de ventilação em ambiente fechado pode causar:",
-    options: [
-      "Melhor combustão",
-      "Acúmulo de gases perigosos",
-      "Redução de risco",
-      "Aumento de visibilidade"
-    ],
-    answer: 1
-  },
-  {
-    question: "O uso de equipamentos de segurança é obrigatório para:",
-    options: [
-      "Evitar fiscalização apenas",
-      "Garantir proteção da vida humana",
-      "Aumentar velocidade",
-      "Reduzir consumo"
-    ],
-    answer: 1
-  },
-  {
-    question: "Em situação de emergência, a comunicação deve ser:",
-    options: [
-      "Confusa",
-      "Clara e objetiva",
-      "Rápida e incompleta",
-      "Desnecessária"
-    ],
-    answer: 1
   }
+
 ]
