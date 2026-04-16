@@ -13,7 +13,8 @@ const simulados = [
   { nome: 'Simulado Geral 40', id: 'simulado40', icon: '🔥' }
 ]
 
-export default function Home({ setTema }) {
+// 🔥 ADICIONADO irHistorico
+export default function Home({ setTema, irHistorico }) {
   return (
     <div style={styles.container}>
 
@@ -61,6 +62,11 @@ export default function Home({ setTema }) {
             </motion.div>
           ))}
         </div>
+
+        {/* 🔥 BOTÃO HISTÓRICO */}
+        <button onClick={irHistorico} style={styles.botaoHistorico}>
+          📊 Ver Histórico
+        </button>
 
       </div>
     </div>
@@ -163,6 +169,20 @@ const styles = {
     cursor: 'pointer',
     border: '1px solid #22c55e',
     boxShadow: '0 0 20px rgba(34,197,94,0.6)',
+    transition: '0.3s'
+  },
+
+  // 🔥 NOVO ESTILO
+  botaoHistorico: {
+    marginTop: 30,
+    padding: 12,
+    width: '100%',
+    borderRadius: 10,
+    border: 'none',
+    background: '#38bdf8',
+    color: '#fff',
+    fontWeight: 'bold',
+    cursor: 'pointer',
     transition: '0.3s'
   }
 }
